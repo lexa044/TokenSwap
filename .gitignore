@@ -2,3 +2,9 @@
 /client/node_modules
 /client/src/contracts
 .secret
+package-lock.json
+package-lock.json
+bin/contracts/Stakeable-solc-output.json
+bin/contracts/Stakeable.abi
+bin/contracts/Stakeable.bin
+bin/contracts/Stakeable.json
