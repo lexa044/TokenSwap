@@ -17,7 +17,7 @@ truffle test
 ```
 
 - in case you want to publish to the testnet dont Forget to add .secret file and put the seed of metamask account in it. for more informations : https://docs.binance.org/smart-chain/developer/deploy/truffle.html
-- in case you want to test locally using Ganache + Metamask. for more informations : https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/
+- How to Set up Ganche with Metamask? For more informations : https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/
 
 # Run
 

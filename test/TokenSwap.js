@@ -8,7 +8,6 @@ contract("TokenSwap", (accounts) => {
     const TokenAInstance = await TokenA.deployed();
     const TokenXInstance = await TokenX.deployed();
 
-    await TokenSwapInstance.tokenABC.call();
     await TokenSwapInstance.buyTokensABC(1000, {
       from: accounts[0],
       value: 1000 * 1000 + 2000,
@@ -58,8 +57,8 @@ contract("TokenSwap", (accounts) => {
 
     assert.equal(balanceOfA, 1005);
 
-    const balanceTKA = await TokenAInstance.balanceOf.call(accounts[0]);
-    const balanceTKX = await TokenXInstance.balanceOf.call(accounts[0]);
+    const balanceTKA = await TokenAInstance.balanceOf(accounts[0]);
+    const balanceTKX = await TokenXInstance.balanceOf(accounts[0]);
     assert.equal(balanceTKA, 5);
     assert.equal(balanceTKX, 11);
   });
@@ -69,9 +68,9 @@ contract("TokenSwap", (accounts) => {
     const TokenAInstance = await TokenA.deployed();
     const TokenXInstance = await TokenX.deployed();
 
-    const ratio = await TokenSwapInstance.setRatio(3);
+    await TokenSwapInstance.setRatio(3);
 
-    const checkPre = await TokenXInstance.balanceOf.call(accounts[0]);
+    const checkPre = await TokenXInstance.balanceOf(accounts[0]);
     assert.equal(checkPre, 11);
     // approve the smart contract to withdraw amount of tokens that is going to be exchanged
     // and test the allowanceValue before and after the approval
@@ -104,8 +103,8 @@ contract("TokenSwap", (accounts) => {
 
     assert.equal(balanceOfA, 1002);
 
-    const balanceTKA = await TokenAInstance.balanceOf.call(accounts[0]);
-    const balanceTKX = await TokenXInstance.balanceOf.call(accounts[0]);
+    const balanceTKA = await TokenAInstance.balanceOf(accounts[0]);
+    const balanceTKX = await TokenXInstance.balanceOf(accounts[0]);
     assert.equal(balanceTKA, 8);
     assert.equal(balanceTKX, 1);
   });

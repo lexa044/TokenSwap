@@ -21,7 +21,7 @@ contract TokenSwap {
         tokenABC = TokenABC(_tokenABC);
         tokenXYZ = TokenXYZ(_tokenXYZ);
         //due to openzeppelin implementation, transferFrom function implementation expects _msgSender() to be the beneficiary from the caller
-        // but in this use cae we are using this contract to transfer so its always checking the allowance of SELF
+        // but in this use case we are using this contract to transfer so its always checking the allowance of SELF
         tokenABC.approve(address(this), tokenABC.totalSupply());
         tokenXYZ.approve(address(this), tokenABC.totalSupply());
     }
@@ -75,6 +75,7 @@ contract TokenSwap {
             "currently the exchange doesnt have enough XYZ Tokens, please retry later :=("
         );
 
+        
         tokenABC.transferFrom(msg.sender, address(this), amountTKA);
         tokenXYZ.approve(address(msg.sender), exchangeAmount);
         tokenXYZ.transferFrom(

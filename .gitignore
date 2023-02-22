@@ -8,3 +8,4 @@ bin/contracts/Stakeable-solc-output.json
 bin/contracts/Stakeable.abi
 bin/contracts/Stakeable.bin
 bin/contracts/Stakeable.json
+package-lock.json

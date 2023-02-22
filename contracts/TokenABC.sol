@@ -27,4 +27,26 @@ contract TokenABC is ERC20, Ownable, Stakeable {
 
         tokensSold += numberOfTokens;
     }
+
+    function stake(uint256 _amount) public {
+        // Make sure staker actually is good for it
+        require(
+            this.totalSupply() < 108000000000000000000000000,
+            "TokenABC: Cannot stake more"
+        );
+        require(
+            _amount <= this.balanceOf(address(msg.sender)),
+            "TokenABC: Cannot stake more than you own"
+        );
+
+        _stake(_amount);
+        // Burn the amount of tokens on the sender
+        _burn(msg.sender, _amount);
+    }
+
+    function withdrawStake(uint256 amount, uint256 stake_index) public {
+        uint256 amount_to_mint = _withdrawStake(amount, stake_index);
+        // Return staked tokens to user
+        _mint(msg.sender, amount_to_mint);
+    }
 }
